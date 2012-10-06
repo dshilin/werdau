@@ -1,0 +1,15 @@
+<div class="special-products">
+  <ol id="special-products" class="product-grid">
+    <% if defined?(@cheapest) && @cheapest %>
+      <%= render :partial => 'spree/shared/product', :locals => { :product => @cheapest } %>
+    <% end %>
+
+    <% if defined?(@best) && @best %>
+      <%= render :partial => 'spree/shared/product', :locals => { :product => @best } %>
+    <% end %>
+
+    <% if defined?(@popular) && @popular %>
+      <%= render :partial => 'spree/shared/product', :locals => { :product => @popular } if @popular %>
+    <% end %>
+  </ol>
+</div>

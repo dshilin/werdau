@@ -8,6 +8,10 @@ Spree::Product.class_eval do
   scope :with_no_images, where("(select count(*) from spree_assets where type = 'Spree::Image' and viewable_type = 'Spree::Product' and viewable_id = spree_products.id) = 0")
   scope :with_no_properties, where("(select count(*) from spree_product_properties where product_id = spree_products.id) = 0")
 
+  scope :cheapest, joins(:variants_with_only_master).group('spree_variants.price').having('min(spree_variants.price)').limit(1)
+  scope :only_best, where(:best => true)
+  scope :only_popular, where(:popular => true)
+
   search_methods :with_no_images, :with_no_properties
 
   def rating
