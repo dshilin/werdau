@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819211225) do
+ActiveRecord::Schema.define(:version => 20121004160815) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -488,6 +488,8 @@ ActiveRecord::Schema.define(:version => 20120819211225) do
     t.integer  "count_on_hand",                                      :default => 0,   :null => false
     t.decimal  "avg_rating",           :precision => 7, :scale => 5, :default => 0.0, :null => false
     t.integer  "reviews_count",                                      :default => 0,   :null => false
+    t.boolean  "popular"
+    t.boolean  "best"
   end
 
   add_index "spree_products", ["available_on"], :name => "index_products_on_available_on"

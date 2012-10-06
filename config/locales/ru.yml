@@ -163,6 +163,9 @@ ru:
   spree:
     admin:
       products:
+        form:
+          best: Лучший
+          popular: Популярный
         index:
           with_no_images: Только товары без картинок
           with_no_properties: Только товары без описания свойств
